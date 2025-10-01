@@ -1,0 +1,345 @@
+// Aroma Queen Ads Banner Styles
+// Compatible with Discourse Air Theme
+
+.aroma-ads-banner {
+  margin: 20px auto;
+  padding: 15px;
+  background: var(--secondary, #ffffff);
+  border: 1px solid var(--primary-low, #e9e9e9);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .aroma-ads-label {
+    font-size: 11px;
+    color: var(--primary-medium, #999999);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .aroma-ads-content {
+    text-align: center;
+    line-height: 1.4;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    a {
+      color: var(--tertiary, #0088cc);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--tertiary-high, #006699);
+        text-decoration: underline;
+      }
+    }
+
+    iframe {
+      max-width: 100%;
+      border: 0;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+// After Header Banner
+.aroma-ads-after-header-wrapper {
+  width: 100%;
+  background: var(--header_background, #ffffff);
+  border-bottom: 1px solid var(--primary-low, #e9e9e9);
+  padding: 10px 0;
+
+  .aroma-ads-banner {
+    max-width: 1110px;
+    margin: 0 auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// Topic List Top Banner
+.aroma-ads-topic-list-top-wrapper,
+.aroma-ads-after-topic-list {
+  width: 100%;
+  margin: 20px 0;
+
+  .aroma-ads-banner {
+    max-width: 100%;
+  }
+}
+
+// After First Post Banner
+.aroma-ads-after-first-post {
+  margin: 30px 0;
+  padding: 20px;
+  background: var(--tertiary-very-low, #f0f8ff);
+  border-left: 3px solid var(--tertiary, #0088cc);
+
+  .aroma-ads-content {
+    font-size: 15px;
+  }
+}
+
+// After Nth Post Banner
+.aroma-ads-after-nth-post {
+  margin: 25px 0;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--secondary, #ffffff) 0%, var(--primary-very-low, #f9f9f9) 100%);
+  border: 1px dashed var(--primary-low-mid, #cccccc);
+}
+
+// Sidebar Banner
+.aroma-ads-sidebar-wrapper {
+  margin: 20px 0;
+
+  .aroma-ads-banner {
+    padding: 15px;
+    background: var(--primary-very-low, #f9f9f9);
+    border: 1px solid var(--primary-low, #e9e9e9);
+    
+    .aroma-ads-content {
+      font-size: 14px;
+    }
+  }
+}
+
+// Before Footer Banner
+.aroma-ads-before-footer {
+  width: 100%;
+  max-width: 1110px;
+  margin: 40px auto 30px;
+  padding: 25px;
+  background: var(--secondary, #ffffff);
+  border-top: 2px solid var(--primary-low, #e9e9e9);
+  border-bottom: 2px solid var(--primary-low, #e9e9e9);
+
+  .aroma-ads-content {
+    font-size: 16px;
+  }
+}
+
+// Mobile Banner
+.aroma-ads-mobile {
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 6px;
+
+  .aroma-ads-label {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .aroma-ads-content {
+    font-size: 13px;
+  }
+}
+
+// Responsive Design
+@media screen and (max-width: 768px) {
+  .aroma-ads-banner {
+    margin: 15px 10px;
+    padding: 12px;
+    border-radius: 6px;
+
+    .aroma-ads-label {
+      font-size: 10px;
+      margin-bottom: 8px;
+    }
+
+    .aroma-ads-content {
+      font-size: 13px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .aroma-ads-after-header-wrapper {
+    padding: 8px 0;
+
+    .aroma-ads-banner {
+      padding: 10px;
+    }
+  }
+
+  .aroma-ads-before-footer {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .aroma-ads-sidebar-wrapper {
+    margin: 15px 0;
+
+    .aroma-ads-banner {
+      padding: 12px;
+    }
+  }
+}
+
+// Dark Mode Support (Air Theme Dark Mode)
+.discourse-theme-dark {
+  .aroma-ads-banner {
+    background: var(--secondary, #1f1f1f);
+    border-color: var(--primary-low, #404040);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .aroma-ads-label {
+      color: var(--primary-medium, #cccccc);
+    }
+  }
+
+  .aroma-ads-after-first-post {
+    background: var(--tertiary-very-low, #1a2530);
+    border-left-color: var(--tertiary, #0088cc);
+  }
+
+  .aroma-ads-after-nth-post {
+    background: linear-gradient(135deg, var(--secondary, #1f1f1f) 0%, var(--primary-very-low, #2a2a2a) 100%);
+  }
+
+  .aroma-ads-sidebar-wrapper .aroma-ads-banner {
+    background: var(--primary-very-low, #2a2a2a);
+  }
+
+  .aroma-ads-before-footer {
+    background: var(--secondary, #1f1f1f);
+    border-top-color: var(--primary-low, #404040);
+    border-bottom-color: var(--primary-low, #404040);
+  }
+}
+
+// Air Theme Specific Adjustments
+.air-theme {
+  .aroma-ads-banner {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .aroma-ads-after-header-wrapper {
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .aroma-ads-after-first-post {
+    border-radius: 12px;
+    border-left-width: 4px;
+  }
+}
+
+// Animation for banner appearance
+@keyframes aroma-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aroma-ads-banner {
+  animation: aroma-fade-in 0.4s ease-out;
+}
+
+// Print styles - hide ads when printing
+@media print {
+  .aroma-ads-banner,
+  .aroma-ads-after-header-wrapper,
+  .aroma-ads-topic-list-top-wrapper,
+  .aroma-ads-sidebar-wrapper,
+  .aroma-ads-before-footer,
+  .aroma-ads-after-topic-list {
+    display: none !important;
+  }
+}
+
+// Accessibility improvements
+.aroma-ads-banner {
+  &:focus-within {
+    outline: 2px solid var(--tertiary, #0088cc);
+    outline-offset: 2px;
+  }
+}
+
+// Common ad sizes support
+.aroma-ads-content {
+  // Leaderboard (728x90)
+  .ad-leaderboard {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+
+  // Banner (468x60)
+  .ad-banner {
+    max-width: 468px;
+    margin: 0 auto;
+  }
+
+  // Rectangle (300x250)
+  .ad-rectangle {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  // Skyscraper (120x600)
+  .ad-skyscraper {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  // Wide Skyscraper (160x600)
+  .ad-wide-skyscraper {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  // Mobile Banner (320x50)
+  .ad-mobile-banner {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  // Large Mobile Banner (320x100)
+  .ad-large-mobile-banner {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+
+
+

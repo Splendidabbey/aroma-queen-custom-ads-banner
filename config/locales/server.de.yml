@@ -1,0 +1,31 @@
+de:
+  site_settings:
+    aroma_ads_banner_enabled: "Aroma Queen Werbebanner Plugin aktivieren"
+    aroma_ads_hide_for_staff: "Werbung für Mitarbeiter ausblenden"
+    aroma_ads_hide_for_trust_level: "Werbung für Benutzer mit Vertrauensstufe gleich oder höher ausblenden (0 = allen anzeigen)"
+    
+    aroma_ads_after_header_enabled: "Banner nach Site-Header anzeigen"
+    aroma_ads_after_header_html: "HTML-Inhalt für Banner nach Header"
+    
+    aroma_ads_after_first_post_enabled: "Banner nach dem ersten Beitrag in Themen anzeigen"
+    aroma_ads_after_first_post_html: "HTML-Inhalt für Banner nach erstem Beitrag"
+    
+    aroma_ads_after_nth_post_enabled: "Banner nach jedem N-ten Beitrag anzeigen"
+    aroma_ads_after_nth_post_number: "Banner nach jedem N-ten Beitrag anzeigen"
+    aroma_ads_after_nth_post_html: "HTML-Inhalt für Banner nach N-tem Beitrag"
+    
+    aroma_ads_sidebar_enabled: "Banner in der Seitenleiste anzeigen"
+    aroma_ads_sidebar_html: "HTML-Inhalt für Seitenleisten-Banner"
+    
+    aroma_ads_before_footer_enabled: "Banner vor Footer anzeigen"
+    aroma_ads_before_footer_html: "HTML-Inhalt für Banner vor Footer"
+    
+    aroma_ads_topic_list_top_enabled: "Banner oben in Themenlisten anzeigen"
+    aroma_ads_topic_list_top_html: "HTML-Inhalt für Banner oben in Themenliste"
+    
+    aroma_ads_mobile_banner_enabled: "Mobilspezifisches Banner anzeigen"
+    aroma_ads_mobile_banner_html: "HTML-Inhalt für Mobil-Banner"
+
+
+
+

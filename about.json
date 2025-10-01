@@ -1,0 +1,11 @@
+{
+  "name": "discourse-aroma-queen-ads-banner",
+  "about_url": "https://github.com/yourusername/discourse-aroma-queen-ads-banner",
+  "license_url": "https://github.com/yourusername/discourse-aroma-queen-ads-banner/blob/main/LICENSE",
+  "authors": "Aroma Queen Team",
+  "version": "1.0.0",
+  "minimum_discourse_version": "2.7.0"
+}
+
+
+

@@ -1,0 +1,93 @@
+plugins:
+  aroma_ads_banner_enabled:
+    default: true
+    client: true
+  
+  # General Settings
+  aroma_ads_hide_for_staff:
+    default: false
+    client: true
+  aroma_ads_hide_for_trust_level:
+    default: 0
+    client: true
+    min: 0
+    max: 4
+  
+  # After Header Banner
+  aroma_ads_after_header_enabled:
+    default: false
+    client: true
+  aroma_ads_after_header_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+  
+  # After First Post Banner
+  aroma_ads_after_first_post_enabled:
+    default: false
+    client: true
+  aroma_ads_after_first_post_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+  
+  # After Nth Post Banner
+  aroma_ads_after_nth_post_enabled:
+    default: false
+    client: true
+  aroma_ads_after_nth_post_number:
+    default: 5
+    client: true
+    min: 1
+    max: 100
+  aroma_ads_after_nth_post_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+  
+  # Sidebar Banner
+  aroma_ads_sidebar_enabled:
+    default: false
+    client: true
+  aroma_ads_sidebar_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+  
+  # Before Footer Banner
+  aroma_ads_before_footer_enabled:
+    default: false
+    client: true
+  aroma_ads_before_footer_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+  
+  # Topic List Top Banner
+  aroma_ads_topic_list_top_enabled:
+    default: false
+    client: true
+  aroma_ads_topic_list_top_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+  
+  # Mobile Banner
+  aroma_ads_mobile_banner_enabled:
+    default: false
+    client: true
+  aroma_ads_mobile_banner_html:
+    default: ""
+    type: html
+    client: true
+    textarea: true
+
+
+
+
