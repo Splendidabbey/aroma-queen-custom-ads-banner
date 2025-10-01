@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # name: discourse-aroma-queen-ads-banner
 # about: Advanced custom ads banner plugin with multilingual support and strategic positioning options
-# version: 1.0.0
+# version: 1.1.0
 # authors: Aroma Queen Team
 # url: https://github.com/yourusername/discourse-aroma-queen-ads-banner
 # required_version: 2.7.0

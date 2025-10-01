@@ -1,0 +1,13 @@
+{{#if this.shouldShowAds}}
+  <div class="aroma-ads-after-header-wrapper">
+    <div class="aroma-ads-banner aroma-ads-after-header">
+      <div class="aroma-ads-label">
+        {{i18n "aroma_ads_banner.advertisement"}}
+      </div>
+      <div class="aroma-ads-content">
+        {{{this.adHtml}}}
+      </div>
+    </div>
+  </div>
+{{/if}}
+

@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
 
-export default class AromaAdsTopicList extends Component {
+export default class AromaAdsBeforeFooter extends Component {
   @service siteSettings;
   @service currentUser;
   
@@ -19,14 +19,11 @@ export default class AromaAdsTopicList extends Component {
       return false;
     }
     
-    return this.siteSettings.aroma_ads_topic_list_top_enabled;
+    return this.siteSettings.aroma_ads_before_footer_enabled;
   }
   
   get adHtml() {
-    return this.siteSettings.aroma_ads_topic_list_top_html || "";
+    return this.siteSettings.aroma_ads_before_footer_html || "";
   }
 }
-
-
-
 

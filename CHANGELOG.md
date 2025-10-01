@@ -50,6 +50,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Air theme (fully tested)
 - Compatible with most standard Discourse themes
 
+## [1.1.0] - 2025-10-01
+
+### Changed
+- **BREAKING FIX**: Migrated from deprecated widget decorators to modern plugin outlets
+- Replaced `decorateWidget` API with Glimmer component connectors
+- Updated to use modern Discourse plugin architecture (0.11.0+ API)
+- Improved performance with component-based rendering
+- Eliminated deprecation warning: `discourse.post-stream-widget-overrides`
+
+### Added
+- Plugin outlet connectors for all ad positions
+- Better component lifecycle management
+- Enhanced compatibility with Discourse 3.0+
+
+### Technical Details
+- Removed deprecated `post-stream:after-nth-post` widget decorator
+- Added modern connectors: `post-after`, `above-main-container`, `discovery-list-container-top`, `above-footer`
+- Updated minimum API version to 0.11.0
+- Full backward compatibility maintained - no configuration changes needed
+
+### Migration
+- Automatic - no user action required
+- All existing settings preserved
+- See [MIGRATION.md](MIGRATION.md) for details
+
 ## [Unreleased]
 
 ### Planned Features

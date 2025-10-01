@@ -1,0 +1,33 @@
+{{#if this.showMobileBanner}}
+  <div class="aroma-ads-banner aroma-ads-mobile">
+    <div class="aroma-ads-label">
+      {{i18n "aroma_ads_banner.advertisement"}}
+    </div>
+    <div class="aroma-ads-content">
+      {{{this.mobileBannerHtml}}}
+    </div>
+  </div>
+{{/if}}
+
+{{#if this.showAfterFirstPost}}
+  <div class="aroma-ads-banner aroma-ads-after-first-post">
+    <div class="aroma-ads-label">
+      {{i18n "aroma_ads_banner.advertisement"}}
+    </div>
+    <div class="aroma-ads-content">
+      {{{this.afterFirstPostHtml}}}
+    </div>
+  </div>
+{{/if}}
+
+{{#if this.showAfterNthPost}}
+  <div class="aroma-ads-banner aroma-ads-after-nth-post">
+    <div class="aroma-ads-label">
+      {{i18n "aroma_ads_banner.advertisement"}}
+    </div>
+    <div class="aroma-ads-content">
+      {{{this.afterNthPostHtml}}}
+    </div>
+  </div>
+{{/if}}
+
