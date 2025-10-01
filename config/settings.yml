@@ -19,9 +19,8 @@ plugins:
     client: true
   aroma_ads_after_header_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
   
   # After First Post Banner
   aroma_ads_after_first_post_enabled:
@@ -29,9 +28,8 @@ plugins:
     client: true
   aroma_ads_after_first_post_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
   
   # After Nth Post Banner
   aroma_ads_after_nth_post_enabled:
@@ -44,9 +42,8 @@ plugins:
     max: 100
   aroma_ads_after_nth_post_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
   
   # Sidebar Banner
   aroma_ads_sidebar_enabled:
@@ -54,9 +51,8 @@ plugins:
     client: true
   aroma_ads_sidebar_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
   
   # Before Footer Banner
   aroma_ads_before_footer_enabled:
@@ -64,9 +60,8 @@ plugins:
     client: true
   aroma_ads_before_footer_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
   
   # Topic List Top Banner
   aroma_ads_topic_list_top_enabled:
@@ -74,9 +69,8 @@ plugins:
     client: true
   aroma_ads_topic_list_top_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
   
   # Mobile Banner
   aroma_ads_mobile_banner_enabled:
@@ -84,9 +78,8 @@ plugins:
     client: true
   aroma_ads_mobile_banner_html:
     default: ""
-    type: html
     client: true
-    textarea: true
+    type: string
 
 
 
