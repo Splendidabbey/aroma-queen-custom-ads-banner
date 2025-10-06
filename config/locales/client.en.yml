@@ -3,6 +3,27 @@ en:
     aroma_ads_banner:
       advertisement: "Advertisement"
       sponsored: "Sponsored"
+  
+  # Setting Labels for English Interface
+  site_settings:
+    aroma_ads_banner_enabled: "Enable Aroma Queen Ads Banner Plugin"
+    aroma_ads_hide_for_staff: "Hide ads for staff members"
+    aroma_ads_hide_for_trust_level: "Hide ads for users with trust level equal or above (0 = show to all)"
+    aroma_ads_after_header_enabled: "Show banner after site header"
+    aroma_ads_after_header_html: "HTML content for after-header banner"
+    aroma_ads_after_first_post_enabled: "Show banner after first post in topics"
+    aroma_ads_after_first_post_html: "HTML content for after-first-post banner"
+    aroma_ads_after_nth_post_enabled: "Show banner after every Nth post"
+    aroma_ads_after_nth_post_number: "Number of posts between banners"
+    aroma_ads_after_nth_post_html: "HTML content for after-nth-post banner"
+    aroma_ads_sidebar_enabled: "Show banner in sidebar"
+    aroma_ads_sidebar_html: "HTML content for sidebar banner"
+    aroma_ads_before_footer_enabled: "Show banner before footer"
+    aroma_ads_before_footer_html: "HTML content for before-footer banner"
+    aroma_ads_topic_list_top_enabled: "Show banner at top of topic lists"
+    aroma_ads_topic_list_top_html: "HTML content for topic list top banner"
+    aroma_ads_mobile_banner_enabled: "Show mobile-specific banner"
+    aroma_ads_mobile_banner_html: "HTML content for mobile banner"
 
 
 
