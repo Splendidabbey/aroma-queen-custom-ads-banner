@@ -1,5 +1,6 @@
 de:
   site_settings:
+    # Plugin Labels (Setting Names) - These will appear as the setting titles
     aroma_ads_banner_enabled: "Aroma Queen Werbebanner Plugin aktivieren"
     aroma_ads_hide_for_staff: "Werbung für Mitarbeiter ausblenden"
     aroma_ads_hide_for_trust_level: "Werbung für Benutzer mit Vertrauensstufe gleich oder höher ausblenden (0 = allen anzeigen)"
@@ -11,7 +12,7 @@ de:
     aroma_ads_after_first_post_html: "HTML-Inhalt für Banner nach erstem Beitrag"
     
     aroma_ads_after_nth_post_enabled: "Banner nach jedem N-ten Beitrag anzeigen"
-    aroma_ads_after_nth_post_number: "Banner nach jedem N-ten Beitrag anzeigen"
+    aroma_ads_after_nth_post_number: "Anzahl der Beiträge zwischen Bannern"
     aroma_ads_after_nth_post_html: "HTML-Inhalt für Banner nach N-tem Beitrag"
     
     aroma_ads_sidebar_enabled: "Banner in der Seitenleiste anzeigen"
