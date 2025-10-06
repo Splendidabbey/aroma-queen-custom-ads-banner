@@ -2,6 +2,7 @@ plugins:
   aroma_ads_banner_enabled:
     default: true
     client: true
+    label: "Aroma Queen Werbebanner Plugin aktivieren"
   
   # General Settings
   aroma_ads_hide_for_staff:
