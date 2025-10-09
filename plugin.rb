@@ -59,6 +59,54 @@ after_initialize do
     
     true
   end
+
+  # Fix PWA manifest to enable proper app installation
+  # This removes the prefer_related_applications flag that blocks PWA installation
+  add_to_serializer(:web_app_manifest, :prefer_related_applications) do
+    false
+  end
+
+  add_to_serializer(:web_app_manifest, :related_applications) do
+    []
+  end
+
+  # Ensure proper icon sizes for PWA installation
+  add_to_serializer(:web_app_manifest, :icons, false) do
+    icons = []
+    
+    # Get the large icon URL (512x512)
+    if large_icon_url = SiteSetting.large_icon_url.presence
+      icons << {
+        src: large_icon_url,
+        sizes: "512x512",
+        type: "image/png"
+      }
+      icons << {
+        src: large_icon_url,
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable"
+      }
+    end
+    
+    # Get the manifest icon URL (should be 192x192, but we'll accept what's there)
+    if manifest_icon_url = SiteSetting.manifest_icon_url.presence
+      icons << {
+        src: manifest_icon_url,
+        sizes: "192x192",
+        type: "image/png"
+      }
+    elsif large_icon_url
+      # Fallback: use large icon for 192x192 if manifest icon not set
+      icons << {
+        src: large_icon_url,
+        sizes: "192x192",
+        type: "image/png"
+      }
+    end
+    
+    icons
+  end
 end
 
 
