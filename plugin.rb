@@ -62,50 +62,47 @@ after_initialize do
 
   # Fix PWA manifest to enable proper app installation
   # This removes the prefer_related_applications flag that blocks PWA installation
-  add_to_serializer(:web_app_manifest, :prefer_related_applications) do
-    false
-  end
-
-  add_to_serializer(:web_app_manifest, :related_applications) do
-    []
-  end
-
-  # Ensure proper icon sizes for PWA installation
-  add_to_serializer(:web_app_manifest, :icons, false) do
-    icons = []
+  require_dependency 'metadata_controller'
+  
+  class ::MetadataController
+    alias_method :original_manifest, :manifest
     
-    # Get the large icon URL (512x512)
-    if large_icon_url = SiteSetting.large_icon_url.presence
-      icons << {
-        src: large_icon_url,
-        sizes: "512x512",
-        type: "image/png"
-      }
-      icons << {
-        src: large_icon_url,
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable"
-      }
+    def manifest
+      # Call original method to get the manifest
+      original_manifest
+      
+      # Modify the response to fix PWA installation issues
+      if response.body.present?
+        begin
+          manifest_data = JSON.parse(response.body)
+          
+          # Remove prefer_related_applications to enable PWA installation
+          manifest_data['prefer_related_applications'] = false
+          manifest_data['related_applications'] = []
+          
+          # Ensure proper icon sizes for PWA
+          if manifest_data['icons'] && !manifest_data['icons'].empty?
+            # Check if we have both 192x192 and 512x512
+            has_192 = manifest_data['icons'].any? { |icon| icon['sizes'] == '192x192' }
+            has_512 = manifest_data['icons'].any? { |icon| icon['sizes'] == '512x512' }
+            
+            # If missing 192x192, add it using the 512x512 source
+            if !has_192 && has_512
+              icon_512 = manifest_data['icons'].find { |icon| icon['sizes'] == '512x512' }
+              manifest_data['icons'] << {
+                'src' => icon_512['src'],
+                'sizes' => '192x192',
+                'type' => 'image/png'
+              }
+            end
+          end
+          
+          response.body = manifest_data.to_json
+        rescue JSON::ParserError => e
+          Rails.logger.warn("Failed to parse manifest JSON: #{e.message}")
+        end
+      end
     end
-    
-    # Get the manifest icon URL (should be 192x192, but we'll accept what's there)
-    if manifest_icon_url = SiteSetting.manifest_icon_url.presence
-      icons << {
-        src: manifest_icon_url,
-        sizes: "192x192",
-        type: "image/png"
-      }
-    elsif large_icon_url
-      # Fallback: use large icon for 192x192 if manifest icon not set
-      icons << {
-        src: large_icon_url,
-        sizes: "192x192",
-        type: "image/png"
-      }
-    end
-    
-    icons
   end
 end
 
