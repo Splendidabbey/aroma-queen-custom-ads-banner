@@ -47,20 +47,50 @@ export default class AromaMembershipLanding extends Component {
     return featuresStr.split("\n").filter(f => f.trim().length > 0);
   }
   
+  // Basic Account Links
+  get basicOneTimeLink() {
+    return this.siteSettings.aroma_membership_basic_onetime_link || "";
+  }
+  
+  get basicInstallmentLink() {
+    return this.siteSettings.aroma_membership_basic_installment_link || "";
+  }
+  
+  // Premium Account Links
+  get premiumOneTimeLink() {
+    return this.siteSettings.aroma_membership_premium_onetime_link || "";
+  }
+  
+  get premiumInstallmentLink() {
+    return this.siteSettings.aroma_membership_premium_installment_link || "";
+  }
+  
   @action
   selectMembership(type, paymentType) {
-    this.selectedMembership = type;
-    this.selectedPaymentType = paymentType;
+    // Check if custom link is provided
+    let customLink = "";
     
-    // Redirect to payment page with parameters
-    const params = new URLSearchParams({
-      membership: type,
-      payment_type: paymentType
-    });
+    if (type === "basic") {
+      customLink = paymentType === "onetime" 
+        ? this.basicOneTimeLink 
+        : this.basicInstallmentLink;
+    } else if (type === "premium") {
+      customLink = paymentType === "onetime"
+        ? this.premiumOneTimeLink
+        : this.premiumInstallmentLink;
+    }
     
-    // Navigate to payment page
-    // This will be handled by a custom route we'll create
-    window.location.href = `/membership/payment?${params.toString()}`;
+    // If custom link is provided, use it; otherwise use internal payment page
+    if (customLink && customLink.trim().length > 0) {
+      window.location.href = customLink;
+    } else {
+      // Redirect to internal payment page with parameters
+      const params = new URLSearchParams({
+        membership: type,
+        payment_type: paymentType
+      });
+      window.location.href = `/membership/payment?${params.toString()}`;
+    }
   }
 }
 

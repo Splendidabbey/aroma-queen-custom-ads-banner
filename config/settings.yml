@@ -108,6 +108,14 @@ plugins:
     client: true
     type: textarea
     label: "Basic Account Features (eine pro Zeile)"
+  aroma_membership_basic_onetime_link:
+    default: ""
+    client: true
+    label: "Basic Account - Link für Einmalzahlung (leer = interne Zahlungsseite)"
+  aroma_membership_basic_installment_link:
+    default: ""
+    client: true
+    label: "Basic Account - Link für Ratenzahlung (leer = interne Zahlungsseite)"
   
   # Premium Membership
   aroma_membership_premium_enabled:
@@ -131,6 +139,14 @@ plugins:
     client: true
     type: textarea
     label: "Premium Account Features (eine pro Zeile)"
+  aroma_membership_premium_onetime_link:
+    default: ""
+    client: true
+    label: "Premium Account - Link für Einmalzahlung (leer = interne Zahlungsseite)"
+  aroma_membership_premium_installment_link:
+    default: ""
+    client: true
+    label: "Premium Account - Link für Ratenzahlung (leer = interne Zahlungsseite)"
   
   # Payment Settings
   aroma_membership_stripe_public_key:
