@@ -131,11 +131,16 @@ after_initialize do
       
       def send_order_confirmation_email(email, order_data)
         # Send order confirmation email
+        # TODO: Implement proper email sending using Discourse's email system
+        # For now, we'll log the order details
+        # You can implement email sending later using Discourse's notification system
         begin
-          Email::Sender.new(
-            OrderConfirmationMailer.send_confirmation(email, order_data),
-            :order_confirmation
-          ).send
+          Rails.logger.info("Order confirmation email should be sent to: #{email}")
+          Rails.logger.info("Order details: #{order_data.inspect}")
+          
+          # Future implementation:
+          # Use Discourse's notification system or email jobs here
+          # Example: Jobs::EnqueueEmail.new.execute(...)
         rescue => e
           Rails.logger.error("Failed to send order confirmation email: #{e.message}")
         end
@@ -154,22 +159,12 @@ after_initialize do
         # user.save_custom_fields
       end
     end
-    
-    class OrderConfirmationMailer < ::ApplicationMailer
-      def send_confirmation(email, order_data)
-        build_email(
-          email,
-          template: 'order_confirmation',
-          order_data: order_data
-        )
-      end
-    end
   end
   
-  # Register routes
+  # Register API routes
+  # Note: Frontend routes (/membership/payment, /membership/thankyou) are handled by Ember.js
+  # See: assets/javascripts/discourse/routes/
   Discourse::Application.routes.append do
-    get '/membership/payment' => 'membership_payment#index'
-    get '/membership/thankyou' => 'membership_thankyou#index'
     post '/aroma-membership/process-payment' => 'aroma_membership/payment#process_payment'
   end
 
