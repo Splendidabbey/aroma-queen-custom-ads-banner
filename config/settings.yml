@@ -89,6 +89,10 @@ plugins:
     default: false
     client: true
     label: "Mitgliedschafts-Landing-Page aktivieren"
+  aroma_membership_display_path:
+    default: "/"
+    client: true
+    label: "Pfad, auf dem die Mitgliedschafts-Landing-Page angezeigt wird (z.B. / oder /latest)"
   
   # Basic Membership
   aroma_membership_basic_title:

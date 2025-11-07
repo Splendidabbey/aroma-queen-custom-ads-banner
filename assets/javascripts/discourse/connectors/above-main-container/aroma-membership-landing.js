@@ -12,9 +12,44 @@ export default class AromaMembershipLanding extends Component {
   @tracked selectedPaymentType = null;
   
   get shouldShowMembership() {
-    return this.siteSettings.aroma_membership_landing_enabled;
+    if (!this.siteSettings.aroma_membership_landing_enabled) {
+      return false;
+    }
+
+    return this.isOnConfiguredPath;
   }
-  
+
+  get isOnConfiguredPath() {
+    try {
+      const configuredPath = this.normalizePath(
+        this.siteSettings.aroma_membership_display_path || "/"
+      );
+      const currentPath = this.normalizePath(window.location.pathname);
+      return currentPath === configuredPath;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  normalizePath(path) {
+    if (!path) {
+      return "/";
+    }
+
+    let normalized = path.trim();
+
+    if (!normalized.startsWith("/")) {
+      normalized = `/${normalized}`;
+    }
+
+    // Remove trailing slash except for root
+    if (normalized.length > 1 && normalized.endsWith("/")) {
+      normalized = normalized.slice(0, -1);
+    }
+
+    return normalized || "/";
+  }
+
   get showPremium() {
     return this.siteSettings.aroma_membership_premium_enabled;
   }

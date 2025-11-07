@@ -77,6 +77,7 @@ de:
     aroma_ads_mobile_banner_enabled: "Mobilspezifisches Banner anzeigen"
     aroma_ads_mobile_banner_html: "HTML-Inhalt für Mobil-Banner"
     aroma_membership_landing_enabled: "Mitgliedschafts-Landing-Page aktivieren"
+    aroma_membership_display_path: "Pfad, auf dem die Mitgliedschafts-Landing-Page angezeigt wird (z.B. / oder /latest)"
     aroma_membership_basic_title: "Basic Account Titel"
     aroma_membership_basic_onetime_price: "Basic Account Einmalpreis (€)"
     aroma_membership_basic_monthly_price: "Basic Account Monatspreis (€)"
