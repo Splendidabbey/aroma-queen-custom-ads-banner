@@ -1,0 +1,241 @@
+<div class="aroma-membership-payment">
+  <div class="payment-container">
+    <div class="payment-header">
+      <h1 class="payment-title">{{i18n "aroma_membership.payment_title"}}</h1>
+      <p class="payment-subtitle">{{i18n "aroma_membership.payment_subtitle"}}</p>
+    </div>
+    
+    <div class="payment-content">
+      <div class="order-summary">
+        <h3 class="summary-title">{{i18n "aroma_membership.order_summary"}}</h3>
+        <div class="summary-item">
+          <span class="summary-label">{{i18n "aroma_membership.membership_type"}}:</span>
+          <span class="summary-value">{{this.membershipTypeName}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">{{i18n "aroma_membership.payment_plan"}}:</span>
+          <span class="summary-value">{{this.paymentPlanName}}</span>
+        </div>
+        <div class="summary-item total">
+          <span class="summary-label">{{i18n "aroma_membership.total"}}:</span>
+          <span class="summary-value">€{{this.model.price}}</span>
+        </div>
+      </div>
+      
+      <div class="payment-form-wrapper">
+        <form class="payment-form" {{on "submit" this.handleSubmit}}>
+          <div class="form-section">
+            <h3 class="form-section-title">{{i18n "aroma_membership.personal_info"}}</h3>
+            
+            <div class="form-group">
+              <label for="firstName" class="form-label">
+                {{i18n "aroma_membership.first_name"}} <span class="required">*</span>
+              </label>
+              <Input 
+                @type="text" 
+                @id="firstName"
+                @value={{this.firstName}} 
+                class="form-control"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName" class="form-label">
+                {{i18n "aroma_membership.last_name"}} <span class="required">*</span>
+              </label>
+              <Input 
+                @type="text" 
+                @id="lastName"
+                @value={{this.lastName}} 
+                class="form-control"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">
+                {{i18n "aroma_membership.email"}} <span class="required">*</span>
+              </label>
+              <Input 
+                @type="email" 
+                @id="email"
+                @value={{this.email}} 
+                class="form-control"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">
+                {{i18n "aroma_membership.phone"}}
+              </label>
+              <Input 
+                @type="tel" 
+                @id="phone"
+                @value={{this.phone}} 
+                class="form-control"
+              />
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <h3 class="form-section-title">{{i18n "aroma_membership.billing_address"}}</h3>
+            
+            <div class="form-group">
+              <label for="address" class="form-label">
+                {{i18n "aroma_membership.street_address"}} <span class="required">*</span>
+              </label>
+              <Input 
+                @type="text" 
+                @id="address"
+                @value={{this.address}} 
+                class="form-control"
+                required
+              />
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="postalCode" class="form-label">
+                  {{i18n "aroma_membership.postal_code"}} <span class="required">*</span>
+                </label>
+                <Input 
+                  @type="text" 
+                  @id="postalCode"
+                  @value={{this.postalCode}} 
+                  class="form-control"
+                  required
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="city" class="form-label">
+                  {{i18n "aroma_membership.city"}} <span class="required">*</span>
+                </label>
+                <Input 
+                  @type="text" 
+                  @id="city"
+                  @value={{this.city}} 
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="country" class="form-label">
+                {{i18n "aroma_membership.country"}} <span class="required">*</span>
+              </label>
+              <select 
+                id="country"
+                class="form-control"
+                {{on "change" this.updateCountry}}
+                required
+              >
+                <option value="">{{i18n "aroma_membership.select_country"}}</option>
+                <option value="DE">Deutschland</option>
+                <option value="AT">Österreich</option>
+                <option value="CH">Schweiz</option>
+                <option value="FR">Frankreich</option>
+                <option value="IT">Italien</option>
+                <option value="ES">Spanien</option>
+                <option value="NL">Niederlande</option>
+                <option value="BE">Belgien</option>
+                <option value="PL">Polen</option>
+                <option value="CZ">Tschechien</option>
+                <option value="OTHER">{{i18n "aroma_membership.other"}}</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <h3 class="form-section-title">{{i18n "aroma_membership.payment_method"}}</h3>
+            
+            <div class="payment-methods">
+              <label class="payment-method-option">
+                <input 
+                  type="radio" 
+                  name="paymentMethod" 
+                  value="stripe"
+                  checked={{if (eq this.paymentMethod "stripe") true false}}
+                  {{on "change" (fn this.updatePaymentMethod "stripe")}}
+                />
+                <span class="method-label">
+                  <span class="method-icon">💳</span>
+                  {{i18n "aroma_membership.credit_card"}}
+                </span>
+              </label>
+              
+              <label class="payment-method-option">
+                <input 
+                  type="radio" 
+                  name="paymentMethod" 
+                  value="paypal"
+                  checked={{if (eq this.paymentMethod "paypal") true false}}
+                  {{on "change" (fn this.updatePaymentMethod "paypal")}}
+                />
+                <span class="method-label">
+                  <span class="method-icon">🅿️</span>
+                  PayPal
+                </span>
+              </label>
+            </div>
+            
+            {{#if this.isStripeSelected}}
+              <div class="stripe-container">
+                <div id="stripe-card-element" class="stripe-element"></div>
+                <div id="stripe-card-errors" class="stripe-errors" role="alert"></div>
+              </div>
+            {{/if}}
+          </div>
+          
+          <div class="form-section">
+            <div class="form-checkbox">
+              <label>
+                <input 
+                  type="checkbox" 
+                  checked={{this.acceptTerms}}
+                  {{on "change" this.toggleTerms}}
+                  required
+                />
+                <span>{{i18n "aroma_membership.accept_terms"}}</span>
+              </label>
+            </div>
+            
+            <div class="form-checkbox">
+              <label>
+                <input 
+                  type="checkbox" 
+                  checked={{this.acceptPrivacy}}
+                  {{on "change" this.togglePrivacy}}
+                  required
+                />
+                <span>{{i18n "aroma_membership.accept_privacy"}}</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button 
+              type="submit" 
+              class="btn btn-primary btn-large payment-submit"
+              disabled={{this.isProcessing}}
+            >
+              {{#if this.isProcessing}}
+                {{i18n "aroma_membership.processing"}}...
+              {{else}}
+                {{i18n "aroma_membership.complete_purchase"}} - €{{this.model.price}}
+              {{/if}}
+            </button>
+            
+            <a href="/" class="btn btn-secondary cancel-btn">
+              {{i18n "aroma_membership.cancel"}}
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

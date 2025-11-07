@@ -83,6 +83,78 @@ plugins:
     default: ""
     client: true
     type: text
+  
+  # Membership Landing Page
+  aroma_membership_landing_enabled:
+    default: false
+    client: true
+    label: "Mitgliedschafts-Landing-Page aktivieren"
+  
+  # Basic Membership
+  aroma_membership_basic_title:
+    default: "Basic Account"
+    client: true
+    label: "Basic Account Titel"
+  aroma_membership_basic_onetime_price:
+    default: "49.00"
+    client: true
+    label: "Basic Account Einmalpreis (€)"
+  aroma_membership_basic_monthly_price:
+    default: "4.49"
+    client: true
+    label: "Basic Account Monatspreis (€)"
+  aroma_membership_basic_features:
+    default: "Zugang zu allen Grundfunktionen\nExklusive Inhalte\nCommunity-Zugang\nE-Mail Support"
+    client: true
+    type: textarea
+    label: "Basic Account Features (eine pro Zeile)"
+  
+  # Premium Membership
+  aroma_membership_premium_enabled:
+    default: false
+    client: true
+    label: "Premium Mitgliedschaft aktivieren"
+  aroma_membership_premium_title:
+    default: "Premium Account"
+    client: true
+    label: "Premium Account Titel"
+  aroma_membership_premium_onetime_price:
+    default: "99.00"
+    client: true
+    label: "Premium Account Einmalpreis (€)"
+  aroma_membership_premium_monthly_price:
+    default: "8.99"
+    client: true
+    label: "Premium Account Monatspreis (€)"
+  aroma_membership_premium_features:
+    default: "Alle Basic Features\nPremium Inhalte\nPrioritärer Support\nExklusive Events\nRabatte auf Produkte"
+    client: true
+    type: textarea
+    label: "Premium Account Features (eine pro Zeile)"
+  
+  # Payment Settings
+  aroma_membership_stripe_public_key:
+    default: ""
+    client: false
+    label: "Stripe Public Key"
+  aroma_membership_stripe_secret_key:
+    default: ""
+    client: false
+    label: "Stripe Secret Key"
+  aroma_membership_paypal_client_id:
+    default: ""
+    client: false
+    label: "PayPal Client ID"
+  
+  # Labels
+  aroma_membership_one_time_label:
+    default: "Einmalzahlung"
+    client: true
+    label: "Label für Einmalzahlung"
+  aroma_membership_installment_label:
+    default: "Ratenzahlung (12 Monate)"
+    client: true
+    label: "Label für Ratenzahlung"
 
 
 

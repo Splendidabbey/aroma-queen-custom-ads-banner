@@ -1,0 +1,130 @@
+{{#if this.shouldShowMembership}}
+  <div class="aroma-membership-landing">
+    <div class="membership-container">
+      <h2 class="membership-title">{{i18n "aroma_membership.landing_title"}}</h2>
+      <p class="membership-subtitle">{{i18n "aroma_membership.landing_subtitle"}}</p>
+      
+      <div class="membership-cards">
+        {{! Basic Account Card }}
+        <div class="membership-card basic-card">
+          <div class="card-header">
+            <h3 class="card-title">🩵 {{i18n "aroma_membership.basic_title"}}</h3>
+            <div class="card-badge">{{i18n "aroma_membership.basic_badge"}}</div>
+          </div>
+          
+          <div class="card-pricing">
+            <div class="pricing-option">
+              <div class="price-main">
+                <span class="currency">€</span>
+                <span class="amount">{{this.basicOneTimePrice}}</span>
+              </div>
+              <p class="price-label">{{i18n "aroma_membership.one_time_payment"}}</p>
+            </div>
+            
+            <div class="pricing-divider">{{i18n "aroma_membership.or"}}</div>
+            
+            <div class="pricing-option">
+              <div class="price-main">
+                <span class="currency">€</span>
+                <span class="amount">{{this.basicMonthlyPrice}}</span>
+                <span class="period">/{{i18n "aroma_membership.month"}}</span>
+              </div>
+              <p class="price-label">{{i18n "aroma_membership.installment_plan"}} (12 {{i18n "aroma_membership.months"}})</p>
+            </div>
+          </div>
+          
+          <div class="card-features">
+            <ul class="features-list">
+              {{#each this.basicFeatures as |feature|}}
+                <li class="feature-item">
+                  <span class="feature-icon">✓</span>
+                  <span class="feature-text">{{feature}}</span>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+          
+          <div class="card-actions">
+            <button 
+              class="btn btn-primary btn-large membership-btn"
+              {{on "click" (fn this.selectMembership "basic" "onetime")}}
+            >
+              {{i18n "aroma_membership.buy_now"}} - €{{this.basicOneTimePrice}}
+            </button>
+            <button 
+              class="btn btn-secondary btn-large membership-btn"
+              {{on "click" (fn this.selectMembership "basic" "installment")}}
+            >
+              {{i18n "aroma_membership.select_installment"}} - €{{this.basicMonthlyPrice}}/{{i18n "aroma_membership.month"}}
+            </button>
+          </div>
+        </div>
+        
+        {{! Premium Account Card - Placeholder for second membership }}
+        {{#if this.showPremium}}
+          <div class="membership-card premium-card">
+            <div class="card-header">
+              <h3 class="card-title">💎 {{i18n "aroma_membership.premium_title"}}</h3>
+              <div class="card-badge premium">{{i18n "aroma_membership.premium_badge"}}</div>
+            </div>
+            
+            <div class="card-pricing">
+              <div class="pricing-option">
+                <div class="price-main">
+                  <span class="currency">€</span>
+                  <span class="amount">{{this.premiumOneTimePrice}}</span>
+                </div>
+                <p class="price-label">{{i18n "aroma_membership.one_time_payment"}}</p>
+              </div>
+              
+              <div class="pricing-divider">{{i18n "aroma_membership.or"}}</div>
+              
+              <div class="pricing-option">
+                <div class="price-main">
+                  <span class="currency">€</span>
+                  <span class="amount">{{this.premiumMonthlyPrice}}</span>
+                  <span class="period">/{{i18n "aroma_membership.month"}}</span>
+                </div>
+                <p class="price-label">{{i18n "aroma_membership.installment_plan"}} (12 {{i18n "aroma_membership.months"}})</p>
+              </div>
+            </div>
+            
+            <div class="card-features">
+              <ul class="features-list">
+                {{#each this.premiumFeatures as |feature|}}
+                  <li class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span class="feature-text">{{feature}}</span>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+            
+            <div class="card-actions">
+              <button 
+                class="btn btn-primary btn-large membership-btn"
+                {{on "click" (fn this.selectMembership "premium" "onetime")}}
+              >
+                {{i18n "aroma_membership.buy_now"}} - €{{this.premiumOneTimePrice}}
+              </button>
+              <button 
+                class="btn btn-secondary btn-large membership-btn"
+                {{on "click" (fn this.selectMembership "premium" "installment")}}
+              >
+                {{i18n "aroma_membership.select_installment"}} - €{{this.premiumMonthlyPrice}}/{{i18n "aroma_membership.month"}}
+              </button>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+      
+      <div class="membership-footer">
+        <p class="security-note">
+          <span class="lock-icon">🔒</span>
+          {{i18n "aroma_membership.secure_payment"}}
+        </p>
+      </div>
+    </div>
+  </div>
+{{/if}}
+

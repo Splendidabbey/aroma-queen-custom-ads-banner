@@ -340,6 +340,751 @@
   }
 }
 
+// ============================================
+// Membership Landing Page Styles
+// ============================================
+
+.aroma-membership-landing {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  
+  .membership-container {
+    background: var(--secondary, #ffffff);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .membership-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: var(--primary, #222222);
+  }
+  
+  .membership-subtitle {
+    font-size: 18px;
+    text-align: center;
+    color: var(--primary-medium, #666666);
+    margin: 0 0 40px 0;
+  }
+  
+  .membership-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .membership-card {
+    background: var(--secondary, #ffffff);
+    border: 2px solid var(--primary-low, #e9e9e9);
+    border-radius: 12px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover {
+      border-color: var(--tertiary, #0088cc);
+      box-shadow: 0 8px 24px rgba(0, 136, 204, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    &.premium-card {
+      border-color: var(--tertiary, #0088cc);
+      background: linear-gradient(135deg, var(--secondary, #ffffff) 0%, var(--tertiary-very-low, #f0f8ff) 100%);
+    }
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary, #222222);
+  }
+  
+  .card-badge {
+    background: var(--tertiary, #0088cc);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    
+    &.premium {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    }
+  }
+  
+  .card-pricing {
+    margin-bottom: 30px;
+  }
+  
+  .pricing-option {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .price-main {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .currency {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary, #222222);
+  }
+  
+  .amount {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary, #222222);
+    line-height: 1;
+  }
+  
+  .period {
+    font-size: 18px;
+    color: var(--primary-medium, #666666);
+  }
+  
+  .price-label {
+    font-size: 14px;
+    color: var(--primary-medium, #666666);
+    margin: 0;
+  }
+  
+  .pricing-divider {
+    text-align: center;
+    color: var(--primary-medium, #666666);
+    margin: 15px 0;
+    font-weight: 500;
+  }
+  
+  .card-features {
+    margin-bottom: 30px;
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: var(--primary, #222222);
+  }
+  
+  .feature-icon {
+    color: var(--success, #00a650);
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .membership-btn {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &.btn-primary {
+      background: var(--tertiary, #0088cc);
+      color: white;
+      
+      &:hover {
+        background: var(--tertiary-high, #006699);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+      }
+    }
+    
+    &.btn-secondary {
+      background: var(--primary-low, #f5f5f5);
+      color: var(--primary, #222222);
+      border: 2px solid var(--primary-low-mid, #cccccc);
+      
+      &:hover {
+        background: var(--primary-low-mid, #e0e0e0);
+        border-color: var(--primary-medium, #999999);
+      }
+    }
+  }
+  
+  .membership-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--primary-low, #e9e9e9);
+  }
+  
+  .security-note {
+    font-size: 14px;
+    color: var(--primary-medium, #666666);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .lock-icon {
+    font-size: 16px;
+  }
+}
+
+// ============================================
+// Payment Page Styles
+// ============================================
+
+.aroma-membership-payment {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  
+  .payment-container {
+    background: var(--secondary, #ffffff);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .payment-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .payment-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--primary, #222222);
+  }
+  
+  .payment-subtitle {
+    font-size: 16px;
+    color: var(--primary-medium, #666666);
+    margin: 0;
+  }
+  
+  .payment-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    
+    @media screen and (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .order-summary {
+    background: var(--primary-very-low, #f9f9f9);
+    border-radius: 12px;
+    padding: 24px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+  }
+  
+  .summary-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: var(--primary, #222222);
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--primary-low, #e9e9e9);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &.total {
+      margin-top: 12px;
+      padding-top: 20px;
+      border-top: 2px solid var(--primary-low-mid, #cccccc);
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+  
+  .summary-label {
+    color: var(--primary-medium, #666666);
+  }
+  
+  .summary-value {
+    color: var(--primary, #222222);
+    font-weight: 500;
+  }
+  
+  .payment-form-wrapper {
+    .payment-form {
+      .form-section {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid var(--primary-low, #e9e9e9);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      
+      .form-section-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        color: var(--primary, #222222);
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: var(--primary, #222222);
+        
+        .required {
+          color: var(--danger, #e45735);
+        }
+      }
+      
+      .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 15px;
+        border: 2px solid var(--primary-low, #e9e9e9);
+        border-radius: 8px;
+        background: var(--secondary, #ffffff);
+        color: var(--primary, #222222);
+        transition: all 0.2s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: var(--tertiary, #0088cc);
+          box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.1);
+        }
+      }
+      
+      .payment-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      
+      .payment-method-option {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        border: 2px solid var(--primary-low, #e9e9e9);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          border-color: var(--tertiary, #0088cc);
+          background: var(--tertiary-very-low, #f0f8ff);
+        }
+        
+        input[type="radio"] {
+          margin-right: 12px;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+        
+        .method-label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--primary, #222222);
+          cursor: pointer;
+        }
+        
+        .method-icon {
+          font-size: 20px;
+        }
+      }
+      
+      .stripe-container {
+        margin-top: 20px;
+        padding: 20px;
+        background: var(--primary-very-low, #f9f9f9);
+        border-radius: 8px;
+      }
+      
+      .stripe-element {
+        padding: 12px;
+        background: white;
+        border: 2px solid var(--primary-low, #e9e9e9);
+        border-radius: 8px;
+      }
+      
+      .stripe-errors {
+        color: var(--danger, #e45735);
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      
+      .form-checkbox {
+        margin-bottom: 15px;
+        
+        label {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          font-size: 14px;
+          color: var(--primary, #222222);
+          cursor: pointer;
+          
+          input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+          }
+        }
+      }
+      
+      .form-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        
+        .payment-submit {
+          flex: 1;
+          padding: 16px 24px;
+          font-size: 16px;
+          font-weight: 600;
+          background: var(--tertiary, #0088cc);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          
+          &:hover:not(:disabled) {
+            background: var(--tertiary-high, #006699);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+          }
+          
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+        
+        .cancel-btn {
+          padding: 16px 24px;
+          font-size: 16px;
+          font-weight: 500;
+          background: var(--primary-low, #f5f5f5);
+          color: var(--primary, #222222);
+          border: 2px solid var(--primary-low-mid, #cccccc);
+          border-radius: 8px;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: var(--primary-low-mid, #e0e0e0);
+            border-color: var(--primary-medium, #999999);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// Thank You Page Styles
+// ============================================
+
+.aroma-membership-thankyou {
+  width: 100%;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  
+  .thankyou-container {
+    background: var(--secondary, #ffffff);
+    border-radius: 16px;
+    padding: 60px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .thankyou-content {
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--success, #00a650);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 auto 30px;
+      animation: scale-in 0.5s ease-out;
+    }
+    
+    .thankyou-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 15px 0;
+      color: var(--primary, #222222);
+    }
+    
+    .thankyou-message {
+      font-size: 18px;
+      color: var(--primary-medium, #666666);
+      margin: 0 0 30px 0;
+      line-height: 1.6;
+    }
+    
+    .order-info {
+      background: var(--primary-very-low, #f9f9f9);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 30px 0;
+      
+      .order-label {
+        font-size: 14px;
+        color: var(--primary-medium, #666666);
+        margin: 0 0 8px 0;
+      }
+      
+      .order-id {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--primary, #222222);
+        margin: 0;
+        font-family: monospace;
+      }
+    }
+    
+    .next-steps {
+      text-align: left;
+      background: var(--tertiary-very-low, #f0f8ff);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 40px 0;
+      
+      .steps-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        color: var(--primary, #222222);
+      }
+      
+      .steps-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .step-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: var(--primary, #222222);
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .step-icon {
+          font-size: 24px;
+          flex-shrink: 0;
+        }
+        
+        .step-text {
+          line-height: 1.5;
+        }
+      }
+    }
+    
+    .thankyou-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 40px;
+      
+      .btn {
+        padding: 14px 28px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        
+        &.btn-primary {
+          background: var(--tertiary, #0088cc);
+          color: white;
+          
+          &:hover {
+            background: var(--tertiary-high, #006699);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+          }
+        }
+        
+        &.btn-secondary {
+          background: var(--primary-low, #f5f5f5);
+          color: var(--primary, #222222);
+          border: 2px solid var(--primary-low-mid, #cccccc);
+          
+          &:hover {
+            background: var(--primary-low-mid, #e0e0e0);
+            border-color: var(--primary-medium, #999999);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Responsive Design for Membership Pages
+@media screen and (max-width: 768px) {
+  .aroma-membership-landing {
+    .membership-container {
+      padding: 20px;
+    }
+    
+    .membership-title {
+      font-size: 28px;
+    }
+    
+    .membership-subtitle {
+      font-size: 16px;
+    }
+    
+    .membership-cards {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .membership-card {
+      padding: 20px;
+    }
+    
+    .amount {
+      font-size: 36px;
+    }
+  }
+  
+  .aroma-membership-payment {
+    .payment-container {
+      padding: 20px;
+    }
+    
+    .payment-title {
+      font-size: 24px;
+    }
+    
+    .payment-content {
+      gap: 30px;
+    }
+    
+    .order-summary {
+      position: static;
+    }
+    
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+      
+      .payment-submit,
+      .cancel-btn {
+        width: 100%;
+      }
+    }
+  }
+  
+  .aroma-membership-thankyou {
+    .thankyou-container {
+      padding: 40px 20px;
+    }
+    
+    .thankyou-title {
+      font-size: 28px;
+    }
+    
+    .thankyou-actions {
+      flex-direction: column;
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
 
 
 
