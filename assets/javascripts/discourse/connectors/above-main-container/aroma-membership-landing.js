@@ -16,6 +16,10 @@ export default class AromaMembershipLanding extends Component {
       return false;
     }
 
+    if (this.isAuthPage) {
+      return false;
+    }
+
     return this.isOnConfiguredPath;
   }
 
@@ -48,6 +52,15 @@ export default class AromaMembershipLanding extends Component {
     }
 
     return normalized || "/";
+  }
+
+  get isAuthPage() {
+    try {
+      const currentPath = this.normalizePath(window.location.pathname);
+      return currentPath === "/login" || currentPath === "/signup";
+    } catch (e) {
+      return false;
+    }
   }
 
   get showPremium() {
