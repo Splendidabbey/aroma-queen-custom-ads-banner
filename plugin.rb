@@ -59,8 +59,8 @@ after_initialize do
           # Send confirmation email
           send_order_confirmation_email(customer_data[:email], order_data)
           
-          # Update user membership (you would implement this based on your needs)
-          update_user_membership(current_user, params[:membership_type])
+          # Update user membership and name (you would implement this based on your needs)
+          update_user_membership(current_user, params[:membership_type], customer_data)
           
           render json: {
             success: true,
@@ -146,7 +146,14 @@ after_initialize do
         end
       end
       
-      def update_user_membership(user, membership_type)
+      def update_user_membership(user, membership_type, customer_data = {})
+        # Update user's name from full_name if provided (auto-generated from first + last name)
+        full_name = customer_data[:full_name] || customer_data['full_name']
+        if full_name.present?
+          user.name = full_name
+          user.save(validate: false)
+        end
+        
         # TODO: Implement user membership update
         # This could involve:
         # 1. Adding custom fields to the user

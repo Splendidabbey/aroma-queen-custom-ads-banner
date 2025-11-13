@@ -21,6 +21,16 @@ export default class MembershipPaymentController extends Controller {
   @tracked acceptPrivacy = false;
   @tracked isProcessing = false;
   
+  // Automatically generate full name from first and last name
+  get fullName() {
+    const first = (this.firstName || "").trim();
+    const last = (this.lastName || "").trim();
+    if (first && last) {
+      return `${first} ${last}`;
+    }
+    return first || last || "";
+  }
+  
   get isStripeSelected() {
     return this.paymentMethod === "stripe";
   }
@@ -84,6 +94,7 @@ export default class MembershipPaymentController extends Controller {
         customer: {
           first_name: this.firstName,
           last_name: this.lastName,
+          full_name: this.fullName, // Auto-generated from first + last name
           email: this.email,
           phone: this.phone,
           address: this.address,
