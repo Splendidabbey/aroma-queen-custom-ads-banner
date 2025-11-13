@@ -16,6 +16,7 @@ export default class AromaMembershipLanding extends Component {
       return false;
     }
 
+    // Strictly exclude login and signup pages
     if (this.isAuthPage) {
       return false;
     }
@@ -56,8 +57,29 @@ export default class AromaMembershipLanding extends Component {
 
   get isAuthPage() {
     try {
-      const currentPath = this.normalizePath(window.location.pathname);
-      return currentPath === "/login" || currentPath === "/signup";
+      // Get pathname without query string or hash
+      const pathname = window.location.pathname || "";
+      const normalizedPath = this.normalizePath(pathname);
+      
+      // Check exact matches for login and signup
+      if (normalizedPath === "/login" || normalizedPath === "/signup") {
+        return true;
+      }
+      
+      // Also check if pathname starts with these routes (in case of sub-routes)
+      if (pathname.startsWith("/login") || pathname.startsWith("/signup")) {
+        return true;
+      }
+      
+      // Check router service if available
+      if (this.router && this.router.currentRoute) {
+        const routeName = this.router.currentRoute.name || "";
+        if (routeName.includes("login") || routeName.includes("signup")) {
+          return true;
+        }
+      }
+      
+      return false;
     } catch (e) {
       return false;
     }
