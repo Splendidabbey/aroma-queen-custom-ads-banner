@@ -1085,6 +1085,44 @@
   }
 }
 
+// ============================================
+// Hide "Name" field from registration form
+// Auto-generate from first name + last name
+// ============================================
 
+.create-account {
+  // Hide the full name input field
+  input[name="name"] {
+    display: none !important;
+  }
+  
+  // Hide the form group/input group containing the name field
+  .input-group:has(input[name="name"]),
+  .form-group:has(input[name="name"]),
+  .control-group:has(input[name="name"]),
+  .input-group input[name="name"],
+  .form-group input[name="name"],
+  .control-group input[name="name"] {
+    display: none !important;
+  }
+  
+  // Hide labels associated with name field (but not first/last name labels)
+  label[for*="name"]:not([for*="first"]):not([for*="last"]):not([for*="username"]) {
+    display: none !important;
+  }
+}
+
+// Fallback: Hide any input with name="name" in create-account
+.create-account-body input[name="name"],
+.create-account-form input[name="name"],
+.create-account input[name="name"] {
+  display: none !important;
+  
+  // Also hide the parent container
+  & + label,
+  & ~ label {
+    display: none !important;
+  }
+}
 
 

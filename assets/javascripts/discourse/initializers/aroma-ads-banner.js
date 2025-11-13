@@ -1,11 +1,120 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 
+function hideNameField() {
+  // Find the name input field
+  const nameInput = document.querySelector('.create-account input[name="name"], .create-account-body input[name="name"]');
+  if (nameInput) {
+    // Hide the input field
+    nameInput.style.display = 'none';
+    nameInput.setAttribute('aria-hidden', 'true');
+    
+    // Find and hide the parent container
+    const formGroup = nameInput.closest('.input-group, .form-group, .control-group, .d-input, .d-field');
+    if (formGroup) {
+      formGroup.style.display = 'none';
+    }
+    
+    // Find and hide the label
+    const label = document.querySelector('label[for="' + nameInput.id + '"]') || 
+                  nameInput.previousElementSibling?.tagName === 'LABEL' ? nameInput.previousElementSibling : null;
+    if (label) {
+      label.style.display = 'none';
+    }
+    
+    // Also try to find label by text content
+    const labels = document.querySelectorAll('.create-account label, .create-account-body label');
+    labels.forEach(lbl => {
+      const text = lbl.textContent.toLowerCase().trim();
+      if ((text.includes('full name') || text === 'name' || text.includes('your full name')) && 
+          !text.includes('first') && !text.includes('last') && !text.includes('username')) {
+        const associatedInput = document.getElementById(lbl.getAttribute('for')) || 
+                                lbl.nextElementSibling?.querySelector('input[name="name"]');
+        if (associatedInput === nameInput || associatedInput?.name === 'name') {
+          lbl.style.display = 'none';
+          const parent = lbl.closest('.input-group, .form-group, .control-group, .d-input, .d-field');
+          if (parent) {
+            parent.style.display = 'none';
+          }
+        }
+      }
+    });
+  }
+}
+
+function setupNameFieldAutoGeneration() {
+  const form = document.querySelector('.create-account form, .create-account-body form');
+  if (form && !form.dataset.nameAutoGenSetup) {
+    form.dataset.nameAutoGenSetup = 'true';
+    
+    form.addEventListener('submit', function(e) {
+      const firstNameInput = document.querySelector('.create-account input[name="first_name"], .create-account-body input[name="first_name"]');
+      const lastNameInput = document.querySelector('.create-account input[name="last_name"], .create-account-body input[name="last_name"]');
+      const nameInput = document.querySelector('.create-account input[name="name"], .create-account-body input[name="name"]');
+      
+      if (nameInput) {
+        if (firstNameInput && lastNameInput) {
+          const firstName = firstNameInput.value.trim();
+          const lastName = lastNameInput.value.trim();
+          if (firstName && lastName) {
+            nameInput.value = `${firstName} ${lastName}`;
+          } else if (firstName) {
+            nameInput.value = firstName;
+          } else if (lastName) {
+            nameInput.value = lastName;
+          }
+        } else if (firstNameInput) {
+          nameInput.value = firstNameInput.value.trim();
+        } else if (lastNameInput) {
+          nameInput.value = lastNameInput.value.trim();
+        }
+      }
+    });
+  }
+}
+
 function initializeAromaAdsBanner(api) {
   // Plugin now uses modern connectors instead of deprecated widget decorators
   // All ad placements are handled via plugin outlets in the connectors directory
   
-  // This initializer is kept for potential future enhancements
-  // that may require the Plugin API
+  // Hide the "Name" field from registration form and auto-generate from first/last name
+  api.modifyClass("component:create-account", {
+    didInsertElement() {
+      this._super(...arguments);
+      setTimeout(() => {
+        hideNameField();
+        setupNameFieldAutoGeneration();
+      }, 100);
+    },
+    
+    didUpdate() {
+      this._super(...arguments);
+      setTimeout(() => {
+        hideNameField();
+        setupNameFieldAutoGeneration();
+      }, 100);
+    }
+  });
+  
+  // Also use mutation observer as a fallback
+  if (typeof window !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      if (document.querySelector('.create-account, .create-account-body')) {
+        hideNameField();
+        setupNameFieldAutoGeneration();
+      }
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    // Initial check
+    setTimeout(() => {
+      hideNameField();
+      setupNameFieldAutoGeneration();
+    }, 500);
+  }
 }
 
 // German setting name translations
